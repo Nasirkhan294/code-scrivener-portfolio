@@ -3,7 +3,7 @@
 :root {
   --main-color: #040b66;
   --secondary-color: #c22554;
-  --light-color: rgb(147, 41, 179);
+  --light-color: rgb(41, 179, 52);
   --white-color: #ffffff;
   --black-color: #000000;
   --hue-color: 206;
@@ -21,8 +21,8 @@
   /*Green gradient*/
   --body-color: linear-gradient(
     90deg,
-    hsl(175, 89%, 48%) 0%,
-    hsl(298, 67%, 56%) 100%
+    hsl(175, 85%, 36%) 0%,
+    hsl(133, 67%, 56%) 100%
   );
   --container-color: linear-gradient(
     136deg,
@@ -93,6 +93,7 @@ section {
   margin-left: 1rem;
   font-size: 1.3rem;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .btn:hover {
@@ -477,14 +478,14 @@ section {
 .services .box-container .box h3 {
   font-size: 2rem;
   padding-bottom: 1rem;
-  color: var(--black-color);
+  color: var(--main-color);
   text-transform: capitalize;
 }
 
 .services .box-container .box p {
   font-size: 1.4rem;
   line-height: 1.8;
-  color: var(--light-color);
+  color: var(--main-color);
 }
 
 .services .box-container .box::before {
@@ -604,14 +605,13 @@ section {
 /* ======================= Contact Section */
 .contact .row {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 5rem 0;
 }
 
 .contact .row .image img {
-  width: 50vw;
-  height: 70vh;
+  width: 70vw;
+  height: 50vh;
 }
 .contact .row form {
   margin: 0 auto 2rem auto;
@@ -781,6 +781,10 @@ section {
   .services .box-container .box p {
     font-size: 2rem;
   }
+  .contact .row .image img {
+    width: 60vw;
+    height: 60vh;
+  }
 }
 /*  =================== Desktop Styles ================= */
 @media (min-width: 1024px) {
@@ -858,5 +862,15 @@ section {
     flex: 2 1 25rem;
     gap: 2rem;
     margin: 2rem;
+  }
+  .contact .row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .contact .row .image img {
+    width: 50vw;
+    height: 50vh;
+    gap: 1rem;
   }
 }
