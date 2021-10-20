@@ -477,14 +477,14 @@ section {
 .services .box-container .box h3 {
   font-size: 2rem;
   padding-bottom: 1rem;
-  color: var(--black-color);
+  color: var(--main-color);
   text-transform: capitalize;
 }
 
 .services .box-container .box p {
   font-size: 1.4rem;
   line-height: 1.8;
-  color: var(--light-color);
+  color: var(--main-color);
 }
 
 .services .box-container .box::before {
