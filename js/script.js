@@ -17,7 +17,7 @@ function scrollHeader(){
   if(this.scrollY >= 50) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
-/*=============== SHOW SCROLL UP ===============*/ 
+/*=============== SHOW SCROLL UP ===============*/
 function scrollUp(){
   const scrollUp = document.getElementById('scroll-up');
   // When the scroll is higher than 200 viewport height, add the show-scroll class to the a tag with the scroll-top class
@@ -46,3 +46,53 @@ var swiper = new Swiper(".review-slider", {
         },
     },
 });
+
+/*============== Theme toggler ===========*/
+let themeToggler = document.querySelector('#theme-toggler');
+
+themeToggler.onclick = () => {
+  themeToggler.classList.toggle('fa-sun');
+    if(themeToggler.classList.contains('fa-sun')) {
+      document.body.classList.add('active');
+    }else {
+      document.body.classList.remove('active');
+    }
+}
+
+/*===== SCROLL REVEAL ANIMATION =====*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 2000,
+    reset: true
+});
+
+
+
+/*SCROLL HOME*/
+sr.reveal('.content',{});
+sr.reveal('.h-btn',{delay: 200});
+sr.reveal('.main-home-img',{delay: 400});
+sr.reveal('.share',{ interval: 200});
+
+
+/*SCROLL ABOUT*/
+sr.reveal('.about-img',{});
+sr.reveal('.heading',{delay: 400});
+sr.reveal('.content',{delay: 400});
+sr.reveal('.ab-btn'),{delay: 500};
+sr.reveal('.icons-container'),{delay: 500};
+
+/*SCROLL SKILLS*/
+sr.reveal('.skills',{});
+sr.reveal('.progress',{});
+sr.reveal('h3',{interval: 200});
+sr.reveal('.bar',{delay: 600});
+
+/*SCROLL SERVICES*/
+sr.reveal('.box',{interval: 200});
+
+/*SCROLL CONTACT*/
+sr.reveal('.image',{interval: 200});
+sr.reveal('.c-btn',{interval: 200});
+sr.reveal('.fab',{interval: 200});

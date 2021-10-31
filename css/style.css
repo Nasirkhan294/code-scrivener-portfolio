@@ -3,14 +3,15 @@
 :root {
   --main-color: #040b66;
   --secondary-color: #c22554;
-  --light-color: rgb(41, 179, 52);
+  --light-color: #777;
   --white-color: #ffffff;
-  --black-color: #000000;
+  --black-color: #fff;
+  --bg-color:#e6e6e6;
   --hue-color: 206;
-  --box-shadow: 0.4rem 0.4rem 1rem rgb(41, 162, 179),
-    -0.4rem -0.4rem 1rem rgb(125, 236, 236);
-  --box-shadow-inset: 0.4rem 0.4rem 1rem rgb(96, 200, 204) inset,
-    -0.4rem -0.4rem 1rem rgb(108, 170, 185) inset;
+  --box-shadow:.4rem .4rem 1rem #ccc,
+              -.4rem -.4rem 1rem #fff;
+  --box-shadow-inset:.4rem .4rem 1rem #ccc inset,
+                    -.4rem -.4rem 1rem #fff inset;
   --border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
   --border-radius-hover: 4% 95% 6% 95%/95% 4% 92% 5%;
   --border: 0.2rem solid var(--main-color);
@@ -18,17 +19,6 @@
   --scroll-thumb-color: hsl(var(--hue-color), 4%, 16%);
   --scroll-thumb-color-alt: hsl(var(--hue-color), 4%, 20%);
 
-  /*Green gradient*/
-  --body-color: linear-gradient(
-    90deg,
-    hsl(175, 85%, 36%) 0%,
-    hsl(133, 67%, 56%) 100%
-  );
-  --container-color: linear-gradient(
-    136deg,
-    hsl(234, 59%, 34%) 0%,
-    hsl(276, 62%, 32%) 100%
-  );
 }
 
 * {
@@ -51,8 +41,21 @@ html {
 }
 
 body {
-  background: var(--body-color);
+  background: var(--bg-color);
 }
+
+body.active{
+    --main-color: #ffffff;
+    --secondary-color: #c22554;
+    --bg-color:#222;
+    --black-color: #000;
+    --border: 0.2rem solid var(--main-color);
+    --box-shadow:.4rem .4rem 1rem #111,
+                -.4rem -.4rem 1rem #333;
+    --box-shadow-inset:.4rem .4rem 1rem #111 inset,
+                      -.4rem -.4rem 1rem #333 inset;
+}
+
 
 section {
   padding: 2rem 9%;
@@ -99,8 +102,30 @@ section {
 .btn:hover {
   border-radius: var(--border-radius-hover);
   border: var(--border-hover);
-  color: var(--main-color);
+  color: var(--secondary-color);
+  box-shadow: var(--box-shadow-inset)
 }
+
+#theme-toggler{
+    position: fixed;
+    top:10rem; right: 2rem;
+    z-index: 1000;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    color:var(--white-color);
+}
+
+#theme-toggler:hover{
+    color:var(--secondary-color);
+    box-shadow: var(--box-shadow-inset);
+}
+
 
 /* --------------------------- Mobile Styles - Homepage --------------------------- */
 
@@ -114,7 +139,7 @@ section {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  background: var(--body-color);
+  background: var(--bg-color);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   padding: 2rem 9%;
 }
@@ -186,7 +211,7 @@ section {
     font-size: 2rem;
     margin: 0;
     padding: 1.5rem 2rem;
-    color: var(--white-color);
+    color: var(--black-color);
     text-transform: capitalize;
     pointer-events: cursor;
   }
@@ -404,7 +429,7 @@ section {
 }
 
 .about .row-2 .skills .progress h3 {
-  color: var(--black);
+  color: var(--main-color);
   font-weight: normal;
   font-size: 1.5rem;
   text-transform: capitalize;
@@ -577,7 +602,7 @@ section {
   right: 1rem;
   bottom: -20%;
   display: flex;
-  background-color: var(--light-color);
+  box-shadow: var(--box-shadow);
   border-radius: 0.35rem;
   padding: 0.5rem;
   opacity: 9;
@@ -586,12 +611,12 @@ section {
 }
 
 .scrollup:hover {
-  background-color: var(--main-color);
+  box-shadow: var(--box-shadow-inset);
   opacity: 1;
 }
 
 .scrollup__icon {
-  color: var(--white-color);
+  color: var(--main-color);
   font-size: 3rem;
 }
 .scrollup__icon:hover {
@@ -602,10 +627,11 @@ section {
 .show-scroll {
   bottom: 5rem;
 }
-/* ======================= Contact Section */
+/* ======================= Contact Section ==================== */
 .contact .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -774,13 +800,7 @@ section {
   }
 
   /* ===================== Services Section ============== */
-  .services .box-container .box h3 {
-    font-size: 3rem;
-  }
 
-  .services .box-container .box p {
-    font-size: 2rem;
-  }
   .contact .row .image img {
     width: 60vw;
     height: 60vh;
@@ -865,8 +885,9 @@ section {
   }
   .contact .row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
   }
   .contact .row .image img {
     width: 50vw;
